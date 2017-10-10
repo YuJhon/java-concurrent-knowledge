@@ -95,6 +95,32 @@ public class CallableTask {
 
 
 ##### 使用ExecutorThreadPool来自定义线程池
+
+![JDK定义](./src/resources/ThreadPoolExecutorConstruct.png)
+> 【corePoolSize】线程池中所保存的核心线程数，包括空闲线程
+
+> 【maximumPoolSize】池中允许的最大线程数
+
+> 【keepAliveTime】线程池中的空闲线程所能持续的最长时间
+
+> 【unit】持续时间的单位
+
+> 【workQueue】任务执行前保存任务的队列，仅保存由execute方法提交的Runnable任务,默认是LinkedBlockingQueue<Runnable>
+
+> 【threadFactory】创建线程的工厂类
+
+> 【handler】异常处理策略handler RejectExecutionHandler
+
+> ThreadPoolExecutor.AbortPolicy()（系统默认）：抛出java.util.concurrent.RejectedExecutionException异常
+
+> ThreadPoolExecutor.CallerRunsPolicy()：当抛出RejectedExecutionException异常时，会调用rejectedExecution方法
+
+> ThreadPoolExecutor.DiscardOldestPolicy()：抛弃旧的任务
+
+> ThreadPoolExecutor.DiscardPolicy()：抛弃当前的任务
+
+![四种RejectExecutionHandler](./src/resources/四种类型的RejectExecutionHandler.png)
+
 ```java
 package com.jhon.rain.executors;
 
