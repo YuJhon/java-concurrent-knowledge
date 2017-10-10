@@ -32,3 +32,12 @@ thread.start();
 > 4、线程也可以阻塞等待获取某个对象锁的排他性访问权限（即等待获得synchronized语句必须的锁时阻塞）。
 
 > 摘抄自[ImportNew -- Java并发编程（4）：守护线程与线程阻塞的四种情况](http://www.importnew.com/20551.html)
+
+
+##### 4.Java中实现多线程的方式
+    4.1 集成Thread类
+    4.2 实现Runnable接口
+    
+    接口实现的优势：
+    a.可以避免java单继承特效带来的局限性
+    b.增加代码的可复用性
