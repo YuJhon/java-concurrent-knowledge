@@ -1,13 +1,3 @@
-#### Java 8 Lambda Expression
-
-##### List的遍历赋值
-```java
-List<User> ts = new ArrayList(100);
-Stream<String> stringStream = ts.stream().map(user -> user.getId());
-```
-
-##### Map的遍历
-```java
 package com.jhon.rain.mapsurround;
 
 import java.util.HashMap;
@@ -42,4 +32,3 @@ public class HashMapExample {
 		});
 	}
 }
-```

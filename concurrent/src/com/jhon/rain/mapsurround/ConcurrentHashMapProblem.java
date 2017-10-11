@@ -80,8 +80,8 @@ public class ConcurrentHashMapProblem {
 			executor.submit(new Runnable() {
 				@Override
 				public void run() {
-					//instance.increase(key);
-					instance.increaseNew(key);
+					instance.increase(key);
+					//instance.increaseNew(key);
 					latch.countDown();
 				}
 			});

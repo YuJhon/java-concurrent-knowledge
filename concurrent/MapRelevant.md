@@ -1,6 +1,13 @@
 #### Map接口
+![Map的结构](./src/resources/Map&HashMap&HashTable.png)
 
 #### HashMap
+##### JDK 1.7 和 JDK 1.8 实现方式的区别
+[1].JDK 1.7：HashMap是数组+链表
+
+[2].JDK 1.8：HashMap是数组+链表+红黑树（JDK1.8增加了红黑树部分）
+
+> 
 
 #### ConcurrentHashMap
 ##### 实现原理
@@ -84,6 +91,60 @@ public class ConcurrentHashMapUsage {
  *         or value prevents it from being stored in this map
  */
  V putIfAbsent(K key, V value);
+ 
+ 
+/**
+* Replaces the entry for the specified key only if currently
+* mapped to the specified value.
+*
+* @implSpec
+* The default implementation is equivalent to, for this {@code map}:
+*
+* <pre> {@code
+* if (map.containsKey(key) && Objects.equals(map.get(key), value)) {
+*     map.put(key, newValue);
+*     return true;
+* } else
+*     return false;
+* }</pre>
+*
+* The default implementation does not throw NullPointerException
+* for maps that do not support null values if oldValue is null unless
+* newValue is also null.
+*
+* <p>The default implementation makes no guarantees about synchronization
+* or atomicity properties of this method. Any implementation providing
+* atomicity guarantees must override this method and document its
+* concurrency properties.
+*
+* @param key key with which the specified value is associated
+* @param oldValue value expected to be associated with the specified key
+* @param newValue value to be associated with the specified key
+* @return {@code true} if the value was replaced
+* @throws UnsupportedOperationException if the {@code put} operation
+*         is not supported by this map
+*         (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
+* @throws ClassCastException if the class of a specified key or value
+*         prevents it from being stored in this map
+* @throws NullPointerException if a specified key or newValue is null,
+*         and this map does not permit null keys or values
+* @throws NullPointerException if oldValue is null and this map does not
+*         permit null values
+*         (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
+* @throws IllegalArgumentException if some property of a specified key
+*         or value prevents it from being stored in this map
+* @since 1.8
+*/
+default boolean replace(K key, V oldValue, V newValue) {
+ Object curValue = get(key);
+ if (!Objects.equals(curValue, oldValue) ||
+     (curValue == null && !containsKey(key))) {
+     return false;
+ }
+ put(key, newValue);
+ return true;
+}
+ 
 ```
 
 
@@ -191,4 +252,11 @@ public class ConcurrentHashMapProblem {
 
 ![执行结果](./src/resources/ConcurrentHashMapProblemResult.png)
 
-#### HashMap && HashTable
+#### HashTable
+
+
+#### TreeMap
+
+
+
+#### LinkedHashMap

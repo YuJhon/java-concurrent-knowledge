@@ -12,11 +12,13 @@
 
 [6].[Executors](./Executors.md)
 
-[7].[Map&HashMap&ConcurrentHashMap](./MapRelevant.md)
+[7].[Hash算法相关知识](./HashFunctionAndConflictMethod.md)
 
-[8].[BlockingQueue](./BlockQueue.md)
+[8].[Map&HashMap&ConcurrentHashMap](./MapRelevant.md)
+
+[9].[BlockingQueue](./BlockQueue.md)
 
 
 ~ 未完待续，敬请期待
 
-~ 更新日期 2017-10-09
+~ 更新日期 2017-10-11
