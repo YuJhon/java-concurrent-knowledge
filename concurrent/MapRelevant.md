@@ -1,4 +1,5 @@
 #### Map接口
+##### Map系列接口和类的类图
 ![Map的结构](./src/resources/Map&HashMap&HashTable.png)
 
 #### HashMap
