@@ -5,8 +5,20 @@
 ##### JDK 1.7 和 JDK 1.8 实现方式的区别
 [1].JDK 1.7：HashMap是数组+链表
 
-[2].JDK 1.8：HashMap是数组+链表+红黑树（JDK1.8增加了红黑树部分）
+[2].JDK 1.8：HashMap是数组+链表+红黑树（JDK1.8增加了红黑树部分）[由此可以看出其内部解决散列冲突是使用[链地址法](./HashFunctionAndConflictMethod.md)]
 
+##### HashMap的初始化参数
+>1.默认的容量是：1<<4=16
+
+>2.最大的容量是：1<<30
+
+>3.默认的装载因子：0,75f
+
+>4.链表的最大长度：8,超过8个的时候就会转换成红黑树
+
+![HashMapInitParams](./src/resources/HashMapInitParams.png)
+
+##### HashMap的组织结构，其中Node是非常关键的内部类
 ![HashMap&NodeStruct](./src/resources/HashMap&NodeStruct.png)
 
 #### ConcurrentHashMap
@@ -253,10 +265,15 @@ public class ConcurrentHashMapProblem {
 ![执行结果](./src/resources/ConcurrentHashMapProblemResult.png)
 
 #### HashTable
-
+>Hashtable是遗留类，很多映射的常用功能与HashMap类似，不同的是它承自Dictionary类，并且是线程安全的，任一时间只有一个线程能写Hashtable，并发性不如ConcurrentHashMap，因为ConcurrentHashMap引入了分段锁。Hashtable不建议在新代码中使用，不需要线程安全的场合可以用HashMap替换，需要线程安全的场合可以用ConcurrentHashMap替换。
 
 #### TreeMap
-
+>TreeMap实现SortedMap接口，能够把它保存的记录根据键排序，默认是按键值的升序排序，也可以指定排序的比较器，当用Iterator遍历TreeMap时，得到的记录是排过序的。如果使用排序的映射，建议使用TreeMap。在使用TreeMap时，key必须实现Comparable接口或者在构造TreeMap传入自定义的Comparator，否则会在运行时抛出java.lang.ClassCastException类型的异常。
 
 
 #### LinkedHashMap
+>LinkedHashMap是HashMap的一个子类，保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的，也可以在构造时带参数，按照访问次序排序。
+
+
+#### 结束语
+~~
