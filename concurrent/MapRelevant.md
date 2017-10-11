@@ -66,8 +66,15 @@ public class ConcurrentHashMapUsage {
 ##### 执行结果
 ![ConcurrentHashMapPutIfAbsent](./src/resources/ConcurrentHashMapPutIfAbsent.png)
 
+##### HashMap的核心API解析
+[1].PUT：
 
-##### ConcurrentHashMap的putIfAbsent方法解析（类似于CAS[Compare And Swap]操作）
+[2].GET：
+
+[3].Resize：
+
+
+#### ConcurrentHashMap的putIfAbsent方法解析（类似于CAS[Compare And Swap]操作）
 ##### JDK源码
 ```java
 /**
