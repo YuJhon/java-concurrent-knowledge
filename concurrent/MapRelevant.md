@@ -6,6 +6,7 @@
 [1].JDK 1.7：HashMap是数组+链表
 
 [2].JDK 1.8：HashMap是数组+链表+红黑树（JDK1.8增加了红黑树部分）
+
 ![HashMap&NodeStruct](./src/resources/HashMap&NodeStruct.png)
 
 #### ConcurrentHashMap
